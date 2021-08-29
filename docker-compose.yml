@@ -1,0 +1,26 @@
+version: "3"
+services:
+  postgres:
+    container_name: "postgres"
+    image: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: password
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+#  web:
+#    container_name: "currencyfair"
+#    build: ./
+#    image: currencyfair:latest
+#    entrypoint: ["java","-jar","/app.jar"]
+#    restart: always
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgres
+
+volumes:
+  pgdata:
